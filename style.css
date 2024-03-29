@@ -20,6 +20,7 @@ td {
 
 /* Estilos gerais */
 
+
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -30,15 +31,14 @@ body {
 main {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px; /* Espaçamento entre as colunas */
-  margin: 0 20px; /* Margem para criar espaço entre as bordas do grid e o conteúdo */
+  gap: 20px; 
+  margin: 0 20px; 
 }
 
 main > section,
 main > article {
   padding: 20px;
 }
-
 
 
 main section,
@@ -190,3 +190,35 @@ footer a[href]:hover {
   opacity: 0.8;
 }
 
+@media (max-width: 768px) { 
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  #evolucao ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  #evolucao figcaption {
+    font-size: 16px;
+  }
+
+  
+  header h1 {
+    font-size: 20px;
+  }
+
+  
+  section h2,
+  article h2 {
+    font-size: 18px;
+  }
+}
