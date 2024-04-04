@@ -20,26 +20,28 @@ td {
 
 /* Estilos gerais */
 
-
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
   background-color: #f4f4f4;
 }
 
-
 main {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px; 
-  margin: 0 20px; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 0 20px;
 }
 
-main > section,
-main > article {
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+main > section {
   padding: 20px;
 }
-
 
 main section,
 main article {
@@ -49,7 +51,9 @@ main article {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-} 
+  display: flex;
+  flex-direction: column;
+}
 
 section h1,
 section h2,
@@ -85,6 +89,16 @@ header h1 {
   font-size: 24px;
 }
 
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}
+
 /* Lista de navegação */
 
 nav ul {
@@ -98,11 +112,24 @@ nav ul {
   margin-bottom: 20px;
 }
 
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 nav a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease-in-out;
+}
+
+section a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
 }
 
 nav a:hover {
@@ -111,18 +138,40 @@ nav a:hover {
 
 /* Seções */
 
+#info-squirtle img {
+  width: 150px;
+  height: 150px;
+  align-self: center;
+}
+
+#info-squirtle div {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 #info-squirtle img,
-#evolucao img { 
-  transition: transform 0.3s ease; 
+#evolucao img {
+  transition: transform 0.3s ease-in-out;
 }
 
 #info-squirtle img:hover,
-#evolucao img:hover { 
-  transform: scale(1.1); 
+#evolucao img:hover {
+  transform: scale(1.1);
+}
+
+#info-squirtle img:nth-of-type(2) {
+  padding: 35px;
 }
 
 #curiosidades li::marker {
   content: '🔍';
+}
+
+#curiosidades ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 #evolucao ul {
@@ -132,8 +181,16 @@ nav a:hover {
   list-style: none;
 }
 
+@media (max-width: 768px) {
+  #evolucao ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 #evolucao img {
   height: 150px;
+  width: 150px;
 }
 
 #evolucao figcaption {
@@ -143,17 +200,23 @@ nav a:hover {
   margin-top: 16px;
 }
 
+@media (max-width: 768px) {
+  #evolucao figcaption {
+    font-size: 16px;
+  }
+}
+
 article {
   background-color: #ffc107;
   color: #fff;
 }
-
 
 /* Links */
 
 a[target='_blank'] {
   color: #4592c4;
   font-weight: bold;
+  transition: opacity 0.3s ease-in-out;
 }
 
 a[target='_blank']:hover {
@@ -166,12 +229,20 @@ footer {
   background-color: #343a40;
   color: #fff;
   padding: 20px;
-  text-align: center;
   bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+footer p {
+  margin-bottom: 0;
 }
 
 footer a {
   text-decoration: none;
+  transition: opacity 0.3s ease-in-out;
 }
 
 footer a[href*='#'] {
@@ -190,35 +261,18 @@ footer a[href]:hover {
   opacity: 0.8;
 }
 
-@media (max-width: 768px) { 
-  main {
-    grid-template-columns: 1fr;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  
-  #evolucao ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  
-  #evolucao figcaption {
-    font-size: 16px;
-  }
-
-  
-  header h1 {
-    font-size: 20px;
-  }
-
-  
-  section h2,
-  article h2 {
-    font-size: 18px;
-  }
+main > section,
+main > article {
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
