@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Página do Squirtle</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
     <header id="header">
       <h1>Squirtle</h1>
     </header>
 
-      <main>
-        <section>
+    <main>
+      <section>
           <img src="" alt="">
-        </section>
-      </main>
+      </section>
+    </main>
 
     <footer aria-label="Rodapé">
       <p aria-label="Copyright">
@@ -27,28 +27,29 @@
     </footer>
   </body>
 
-  <script>
-    async function executaApi() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const valorDoParametro = urlParams.get('pokemon');
-      console.log(valorDoParametro);
-      const imagem = document.querySelector('img');
-  
-      try {
-          const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + 'squirtle');
-          if (!response.ok) {
-              throw new Error('Erro ao carregar os dados');
-          }
-          
-          const dados = await response.json();
-          imagem.src = dados.sprites.front_default;
-          console.log(dados);
-  
-      } catch (error) {
-          console.error('Ocorreu um erro ao buscar os dados da API:', error);
-      }
-  }
-  
-  executaApi();
-  </script>
+<script>
+  async function executaApi() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const valorDoParametro = urlParams.get('pokemon');
+    console.log(valorDoParametro);
+    const imagem = document.querySelector('img');
+
+    try {
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + 'squirtle');
+        if (!response.ok) {
+            throw new Error('Erro ao carregar os dados');
+        }
+        
+        const dados = await response.json();
+        imagem.src = dados.sprites.front_default;
+        console.log(dados);
+
+    } catch (error) {
+        console.error('Ocorreu um erro ao buscar os dados da API:', error);
+    }
+}
+
+executaApi();
+</script>
+
 </html>

@@ -30,16 +30,9 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  margin: 0 20px;
 }
 
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr;
-  }
-}
-
-main > section {
+main>section {
   padding: 20px;
 }
 
@@ -53,6 +46,14 @@ main article {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
+}
+
+main img {
+  transition: scale .3s ease;
+}
+
+main img:hover {
+  scale: 1.1;
 }
 
 section h1,
@@ -89,16 +90,6 @@ header h1 {
   font-size: 24px;
 }
 
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 20px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-}
-
 /* Lista de navegação */
 
 nav ul {
@@ -112,17 +103,11 @@ nav ul {
   margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 nav a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+
   transition: color 0.3s ease-in-out;
 }
 
@@ -131,6 +116,8 @@ section a {
   color: #000;
   font-weight: bold;
 }
+
+script{}
 
 nav a:hover {
   color: #ffc107;
@@ -150,17 +137,7 @@ nav a:hover {
   flex-wrap: wrap;
 }
 
-#info-squirtle img,
-#evolucao img {
-  transition: transform 0.3s ease-in-out;
-}
-
-#info-squirtle img:hover,
-#evolucao img:hover {
-  transform: scale(1.1);
-}
-
-#info-squirtle img:nth-of-type(2) {
+#img-squirtle-2 {
   padding: 35px;
 }
 
@@ -181,11 +158,9 @@ nav a:hover {
   list-style: none;
 }
 
-@media (max-width: 768px) {
-  #evolucao ul {
-    flex-direction: column;
-    align-items: center;
-  }
+section img{
+  height: 150px;
+  width: 150px;
 }
 
 #evolucao img {
@@ -200,12 +175,6 @@ nav a:hover {
   margin-top: 16px;
 }
 
-@media (max-width: 768px) {
-  #evolucao figcaption {
-    font-size: 16px;
-  }
-}
-
 article {
   background-color: #ffc107;
   color: #fff;
@@ -216,7 +185,7 @@ article {
 a[target='_blank'] {
   color: #4592c4;
   font-weight: bold;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease;
 }
 
 a[target='_blank']:hover {
@@ -261,18 +230,30 @@ footer a[href]:hover {
   opacity: 0.8;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-main > section,
-main > article {
-  animation: fadeIn 0.5s ease-in-out forwards;
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #evolucao ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #evolucao figcaption {
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
 }
