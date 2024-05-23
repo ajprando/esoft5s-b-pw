@@ -35,6 +35,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const tasks = JSON.parse(localStorage.getItem(taskKey)) || []
   const taskList = document.querySelector('#taskList')
   taskList.innerHTML = tasks
-    .map((task) => `<li><h2>${task.title}</h2><p>${task.description}</p></li>`)
+    .map((task) => `<li><h2>${task.title}</h2><p>${task.description}</p><button2 title="Editar tarefa">✏️</button></li>`)
     .join('')
 })
