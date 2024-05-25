@@ -12,12 +12,16 @@ function addTask(event) {
   const taskTitle = formData.get('title')
   const taskDescription = formData.get('description')
 
+  
+
   const li = document.createElement('li')
 
   li.id = taskId
   li.innerHTML = `
+    <div>
       <h2>${taskTitle}</h2>
       <p>${taskDescription}</p>
+    </div>
   `
 
   taskList.appendChild(li)
@@ -35,6 +39,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const tasks = JSON.parse(localStorage.getItem(taskKey)) || []
   const taskList = document.querySelector('#taskList')
   taskList.innerHTML = tasks
-    .map((task) => `<li><h2>${task.title}</h2><p>${task.description}</p><button2 title="Editar tarefa">✏️</button></li>`)
+    .map((task) => `<li><div><h2>${task.title}</h2><p>${task.description}</p></div><button2 title="Editar tarefa">✏️</button></li>`)
     .join('')
 })
